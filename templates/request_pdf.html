@@ -5,8 +5,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style type="text/css">
+        body { background-color: gray; }
+        h1 { text-align: center; }
+        #container {
+            background-color: white;
+            width: 210mm;
+            height: 297mm;
+            margin: 30px auto;
+        }
+
+        header table{
+            height: 80px;
+            width: 140px;
+            font-size: small;
+            margin-left: 80%;
+        }
+        
+        main thead{
+            background-color: rgb(217, 160, 255);
+        }
+
+        table {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 10px auto;
+        }
+        
+        main td, th{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        
+        header td, th{
+            border: 2px solid black;
+            padding: 2px;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <div id="container">
+        <header>
+            <br>
+            <table>
+                <tr>
+                    <td rowspan=2 style="width:10px; writing-mode: horizontal-tb;">결재</td>
+                    <td>담당</td>
+                    <td>임원</td>
+                </tr>
+                <tr>
+                    <td style="height:50px;"></td>
+                    <td style="height:50px;"></td>
+                </tr>
+            </table>
+            <h1>사무용품 구매신청서</h1>
+            <br>
+        </header>
+        <main>
+            <p style="text-align: right; margin-right: 10px;">2021년 02월 07일</p>
+            <table>
+                <colgroup>
+                    <col style="width: 60px;">
+                    <col style="width: 400px;">
+                    <col style="width: 60px;">
+                    <col style="width: 100px;">
+                    <col style="width: 150px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>품명</th>
+                        <th>수량</th>
+                        <th>단가</th>
+                        <th>금액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>dddddddd</td>
+                        <td>2</td>
+                        <td>10000</td>
+                        <td>20000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>dddfddddddd</td>
+                        <td>3</td>
+                        <td>10000</td>
+                        <td>30000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
 </body>
 </html>

@@ -4,6 +4,6 @@ from .models import Signoff
 def index(request):
     requests = Signoff.objects.order_by('id').values()
     context = {
-        'requests': requests
+        'requests': requests,
     }
     return render(request, 'request_list.html', context)
