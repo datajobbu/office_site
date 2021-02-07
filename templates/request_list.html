@@ -5,13 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Office</title>
+    <style>
+        h1 {
+            padding: 10px;
+            background-color: navy;
+            color: #fff;
+        }
+        table {
+            border: 1px solid black;
+        }
+        td, th {
+            border: 1px dotted black;
+            padding: 10px;
+            text-align: center;
+        }
+        li { display: inline;}
+    </style>
 </head>
 <body>
     <div id="container">
         <header>
             <a href="#"><h1>OFFICE</h1></a>
-            <nav>
-                <ul id="topMenu">
+            <nav id="topMenu">
+                <ul>
                     <li><a href="#">신청 리스트</a></li>
                     <li><a href="#">구매 신청</a></li>
                 </ul>
@@ -32,7 +48,7 @@
                     {% for request in requests %}
                     <tr>
                         <td>{{ request.id }}</td>
-                        <td>구매신청서({{ request.request_date }})</td>
+                        <td>구매신청</td>
                         <td>{{ request.request_date }}</td>
                         <td>---</td>
                     </tr>
