@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <a href="#"><h1>OFFICE</h1></a>
+            <nav>
+                <ul id="topMenu">
+                    <li><a href="#">신청 리스트</a></li>
+                    <li><a href="#">구매 신청</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="contents">
+            {% if requests %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>일시</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in requests %}
+                    <tr>
+                        <td>{{ request.id }}</td>
+                        <td>구매신청서({{ request.request_date }})</td>
+                        <td>{{ request.request_date }}</td>
+                        <td>---</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>내역이 없습니다.</p>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>
