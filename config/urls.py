@@ -19,5 +19,7 @@ from signoff import views #add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('signoff/', views.signoff, name="signoff"),
+    path('signoff/<str:date>/', views.detail),
+    path('', views.index, name='list'),
 ]

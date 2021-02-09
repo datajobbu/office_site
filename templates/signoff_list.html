@@ -35,23 +35,19 @@
             </nav>
         </header>
         <main class="contents">
-            {% if requests %}
+            {% if date_list %}
             <table>
                 <thead>
                     <tr>
-                        <th>번호</th>
-                        <th>제목</th>
                         <th>일시</th>
                         <th>상태</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for request in requests %}
+                    {% for date in date_list %}
                     <tr>
-                        <td>{{ request.id }}</td>
-                        <td>구매신청</a></td>
-                        <td>{{ request.request_date }}</td>
-                        <td>---</td>
+                        <td><a href="{{ date }}/">{{ date }}</a></td>
+                        <td>결재완료</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

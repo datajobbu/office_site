@@ -1,7 +1,4 @@
 __pycache__/
 *.pyc
 secrets.json
-*.db
-*.sqlite3
 *.log
-migrations

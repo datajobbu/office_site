@@ -19,7 +19,7 @@
             height: 80px;
             width: 140px;
             font-size: small;
-            margin-left: 80%;
+            margin-left: 77%;
         }
         
         main thead{
@@ -56,18 +56,18 @@
                     <td>임원</td>
                 </tr>
                 <tr>
-                    <td style="height:50px;"></td>
-                    <td style="height:50px;"></td>
+                    <td style="height:50px;"><img src="/static/img/p1.png" style="height:30px; width:40px"></td>
+                    <td style="height:50px;"><img src="/static/img/p2.png" style="height:30px; width:40px"></td>
                 </tr>
             </table>
             <h1>사무용품 구매신청서</h1>
             <br>
         </header>
         <main>
-            <p style="text-align: right; margin-right: 10px;">2021년 02월 07일</p>
+            {% if requests %}
+            <p style="text-align: right; margin-right: 40px;">일시: {{ date }}</p>
             <table>
                 <colgroup>
-                    <col style="width: 60px;">
                     <col style="width: 400px;">
                     <col style="width: 60px;">
                     <col style="width: 100px;">
@@ -75,7 +75,6 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th>구분</th>
                         <th>품명</th>
                         <th>수량</th>
                         <th>단가</th>
@@ -83,22 +82,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for request in requests %}
                     <tr>
-                        <td>1</td>
-                        <td>dddddddd</td>
-                        <td>2</td>
-                        <td>10000</td>
-                        <td>20000</td>
+                        <td>{{ request.name }}</td>
+                        <td>{{ request.qnt }}</td>
+                        <td>{{ request.unit }}</td>
+                        <td>{{ request.total }}</td>
                     </tr>
+                    {% endfor %}
                     <tr>
-                        <td>2</td>
-                        <td>dddfddddddd</td>
-                        <td>3</td>
-                        <td>10000</td>
-                        <td>30000</td>
+                        <td colspan=3 sytle="text-align:right;">합계</td>
+                        <td>{{ total.total__sum }}원</td>
                     </tr>
                 </tbody>
             </table>
+            {% endif %}
         </main>
     </div>
 </body>
