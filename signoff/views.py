@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import F, Sum
+from django.urls import reverse
 from .models import Signoff
-# Create your views here.
+from .forms import SignoffForm
+
+
 def index(request):
     requests = Signoff.objects.order_by('-request_date', '-id').values()
     context = {
@@ -38,3 +41,22 @@ def detail(request, date):
     }
     
     return render(request, 'request_pdf.html', context)
+
+
+def request_create(request):
+    form = SignoffForm()
+
+    if request.method == 'POST':
+        form = SignoffForm(request.POST)
+
+        if form.is_valid():
+            request = form.save(commit=False)
+            request.save()
+            return redirect(reverse('list'))
+        
+        else:
+            form = SignoffForm()
+    
+    context = {'form': form}
+
+    return render(request, 'request_form.html', context)

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office</title>
+    <style>
+        h1 {
+            padding: 10px;
+            background-color: navy;
+            color: #fff;
+        }
+        li { display: inline;}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#"><h1>OFFICE</h1></a>
+        <nav id="topMenu">
+            <ul>
+                <li><a href="{% url 'list' %}">신청 리스트</a></li>
+                <li><a href="{% url 'signoff' %}">결재 리스트</a></li>
+                <li><a href="{% url 'request_create' %}" class="btn btn-primary">구매 등록</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h5>구매 등록</h5>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">저장하기</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

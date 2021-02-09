@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('signoff/', views.signoff, name="signoff"),
     path('signoff/<str:date>/', views.detail),
+    path('create/', views.request_create, name="request_create"),
     path('', views.index, name='list'),
 ]
