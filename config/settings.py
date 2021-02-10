@@ -46,6 +46,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'authenticate.apps.AuthenticateConfig',
     'signoff.apps.SignoffConfig', #add
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,3 +139,6 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

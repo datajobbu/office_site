@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.db.models import F, Sum
 from django.urls import reverse
@@ -28,7 +29,7 @@ def signoff(request):
 
     return render(request, 'signoff_list.html', context)
 
-
+@login_required(login_url='login')
 def detail(request, date):
     annot = Signoff.objects.annotate(total=F('unit') * F('qnt'))
     requests = annot.filter(request_date=date).values()
@@ -42,7 +43,7 @@ def detail(request, date):
     
     return render(request, 'request_pdf.html', context)
 
-
+@login_required(login_url='login')
 def request_create(request):
     form = SignoffForm()
 
@@ -57,6 +58,12 @@ def request_create(request):
         else:
             form = SignoffForm()
     
-    context = {'form': form}
+    context = {
+        'form': form
+    }
 
     return render(request, 'request_form.html', context)
+
+
+def login(request):
+    return render(request, 'login.html')
