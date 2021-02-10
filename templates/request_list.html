@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Office</title>
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
     <style>
         h1 {
             padding: 10px;
@@ -37,19 +40,19 @@
         </header>
         <main class="contents">
             {% if requests %}
-            <table>
-                <thead>
+            <table class="table table-bordered table-sm">
+                <thead class="thead-dark">
                     <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>일시</th>
-                        <th>상태</th>
+                        <th scope="col">번호</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">일시</th>
+                        <th scope="col">상태</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for request in requests %}
                     <tr>
-                        <td>{{ request.id }}</td>
+                        <th scope="row">{{ request.id }}</td>
                         <td>구매신청</a></td>
                         <td>{{ request.request_date }}</td>
                         <td>---</td>
