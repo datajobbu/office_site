@@ -12,7 +12,7 @@ def index(request):
     context = {
         'requests': requests,
     }
-    return render(request, 'request_list.html', context)
+    return render(request, 'signoff/request_list.html', context)
 
 @login_required(login_url='/login/')
 def signoff(request):
@@ -28,7 +28,7 @@ def signoff(request):
         "date_list": unq_date,
     }
 
-    return render(request, 'signoff_list.html', context)
+    return render(request, 'signoff/signoff_list.html', context)
 
 @login_required(login_url='/login/')
 def detail(request, date):
@@ -42,7 +42,7 @@ def detail(request, date):
         'total': total,
     }
     
-    return render(request, 'request_pdf.html', context)
+    return render(request, 'signoff/request_pdf.html', context)
 
 @login_required(login_url='/login/')
 def request_create(request):
@@ -63,4 +63,4 @@ def request_create(request):
         'form': form
     }
 
-    return render(request, 'request_form.html', context)
+    return render(request, 'signoff/request_form.html', context)
