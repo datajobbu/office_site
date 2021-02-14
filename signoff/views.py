@@ -6,6 +6,7 @@ from .models import Signoff
 from .forms import SignoffForm
 
 
+@login_required(login_url='/login/')
 def index(request):
     requests = Signoff.objects.order_by('-request_date', '-id').values()
     context = {
@@ -13,7 +14,7 @@ def index(request):
     }
     return render(request, 'request_list.html', context)
 
-
+@login_required(login_url='/login/')
 def signoff(request):
     signs = Signoff.objects.values('request_date')
     
@@ -29,7 +30,7 @@ def signoff(request):
 
     return render(request, 'signoff_list.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def detail(request, date):
     annot = Signoff.objects.annotate(total=F('unit') * F('qnt'))
     requests = annot.filter(request_date=date).values()
@@ -43,7 +44,7 @@ def detail(request, date):
     
     return render(request, 'request_pdf.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def request_create(request):
     form = SignoffForm()
 
@@ -53,7 +54,7 @@ def request_create(request):
         if form.is_valid():
             request = form.save(commit=False)
             request.save()
-            return redirect(reverse('list'))
+            return redirect(reverse('signoff:list'))
         
         else:
             form = SignoffForm()
@@ -63,7 +64,3 @@ def request_create(request):
     }
 
     return render(request, 'request_form.html', context)
-
-
-def login(request):
-    return render(request, 'login.html')

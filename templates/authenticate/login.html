@@ -33,10 +33,10 @@
     <link href="/static/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form method="post" class="form-signin" action="{% url 'login' %}">
+    <form method="post" class="form-signin" action="{% url 'authenticate:login' %}">
       <p class="mt-5 mb-3 text-muted">로그인</p>
       {% csrf_token %}
-      {% include "form_errors.html" %}
+      {% include "authenticate/form_errors.html" %}
       <label for="username" class="sr-only">사용자 ID</label>
       <input type="text" name="username" id="username" class="form-control" placeholder="ID" value="{{ form.username.value|default_if_none:''}}" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>

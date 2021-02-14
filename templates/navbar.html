@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="topMenu">
+    <a class="navbar-brand" href="{% url 'signoff:list' %}">OFFICE</a>
+    <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signoff:list' %}">
+                    신청 리스트
+                </a>
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link" href="{% url 'signoff:signoff' %}">
+                    결재 리스트
+                </a>
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link" href="{% url 'signoff:request_create' %}">
+                    구매 등록
+                </a>
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link" href="{% url 'authenticate:logout' %}">
+                    로그아웃
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
